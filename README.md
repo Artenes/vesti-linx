@@ -43,6 +43,35 @@ No arquivo `.env` configure as credenciais de acesso ao banco de dados do Linx e
 
     * * * * * php /diretorio-do-projeto/artisan schedule:run >> /dev/null 2>&1
 
+# Clientes
+
+## Criar
+
+Para consumir a API é necessário a criação de clientes através do seguinte comando:
+
+	php artisan merchant:new
+	
+Você deverá informar uma descrição para o cliente. O comando irá gerar um `merchant-key` e um `merchant-secret`. Estas credenciais devem ser enviadas no cabeçalho ou no corpo de toda requisição:
+
+	merchant-key: 2cd2830e-36db-467b-82ad-f714f2015ff5
+	merchant-secret: el0bdljC8VVHJu2X
+
+ou
+
+	http://vestiapi.com/v1/endpoint?merchant-key=2cd2830e-36db-467b-82ad-f714f2015ff5&merchant-secret=el0bdljC8VVHJu2X
+	
+## Listar
+
+Comando que irá listar todos os clientes cadastrados:
+
+	php artisan merchant:list
+	
+## Deletar
+
+Deleta um cliente:
+
+	php artisan merchant:delete 2cd2830e-36db-467b-82ad-f714f2015ff5
+
 # Endpoints
 
 ## `GET /v1/product/{griffe}/{reference}`
